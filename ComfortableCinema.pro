@@ -22,7 +22,8 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     people.cpp \
-    person.cpp
+    person.cpp \
+    settings.cpp
 
 HEADERS += \
     airconditioning.h \
@@ -30,10 +31,12 @@ HEADERS += \
     fan.h \
     mainwindow.h \
     people.h \
-    person.h
+    person.h \
+    settings.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    settings.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
