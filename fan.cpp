@@ -4,3 +4,13 @@ Fan::Fan()
 {
 
 }
+
+double Fan::changeTemperature()
+{
+    return 0;
+}
+
+void Fan::changeSpeed()
+{
+
+}
