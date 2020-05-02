@@ -16,14 +16,27 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    factors/airconditioning.cpp \
+    factors/factor.cpp \
+    factors/fan.cpp \
+    factors/people.cpp \
+    factors/person.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    settings.cpp
 
 HEADERS += \
-    mainwindow.h
+    factors/airconditioning.h \
+    factors/factor.h \
+    factors/fan.h \
+    factors/people.h \
+    factors/person.h \
+    mainwindow.h \
+    settings.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    settings.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
