@@ -16,11 +16,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    airconditioning.cpp \
+    factor.cpp \
+    fan.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    people.cpp \
+    person.cpp
 
 HEADERS += \
-    mainwindow.h
+    airconditioning.h \
+    factor.h \
+    fan.h \
+    mainwindow.h \
+    people.h \
+    person.h
 
 FORMS += \
     mainwindow.ui
