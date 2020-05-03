@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>404</width>
+    <height>310</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <x>290</x>
      <y>20</y>
      <width>81</width>
-     <height>241</height>
+     <height>101</height>
     </rect>
    </property>
    <property name="orientation">
@@ -32,10 +32,10 @@
   <widget class="QWidget" name="formLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>10</x>
      <y>10</y>
      <width>261</width>
-     <height>281</height>
+     <height>121</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -78,6 +78,102 @@
     </item>
     <item row="3" column="1">
      <widget class="QSpinBox" name="simulationStepSpinBox"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="formLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>160</y>
+     <width>193</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout_2">
+    <property name="horizontalSpacing">
+     <number>3</number>
+    </property>
+    <property name="verticalSpacing">
+     <number>3</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QLabel" name="weatherCO2Label">
+      <property name="text">
+       <string>Weather CO2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QDoubleSpinBox" name="weatherCO2doubleSpinBox"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="weatherTemperatureLabel">
+      <property name="text">
+       <string>Weather temperature</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QDoubleSpinBox" name="weatherTempdoubleSpinBox"/>
+    </item>
+    <item row="2" column="1">
+     <widget class="QDoubleSpinBox" name="weatherHumiditydoubleSpinBox"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="weatherHumidityLabel">
+      <property name="text">
+       <string>Weather humidity</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="formLayoutWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>160</y>
+     <width>181</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout_3">
+    <property name="horizontalSpacing">
+     <number>3</number>
+    </property>
+    <property name="verticalSpacing">
+     <number>3</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QLabel" name="initCO2Label">
+      <property name="text">
+       <string>Init CO2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QDoubleSpinBox" name="initCO2doubleSpinBox"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="initTemperatureLabel">
+      <property name="text">
+       <string>Init temperature</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QDoubleSpinBox" name="initTempdoubleSpinBox"/>
+    </item>
+    <item row="2" column="1">
+     <widget class="QDoubleSpinBox" name="initHumiditydoubleSpinBox"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="initHumidityLabel">
+      <property name="text">
+       <string>Init humidity</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
