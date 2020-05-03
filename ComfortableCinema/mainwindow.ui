@@ -27,6 +27,16 @@
      <string>Settings</string>
     </property>
    </widget>
+   <widget class="QLCDNumber" name="lcdNumberFans">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>92</y>
+      <width>64</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

@@ -2,10 +2,11 @@
 #define CONDITIONS_H
 
 
-class Conditions
+struct Conditions
 {
-public:
-    Conditions();
+    double CO2;
+    double temperature;
+    double humidity;
 };
 
 #endif // CONDITIONS_H

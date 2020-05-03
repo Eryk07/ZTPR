@@ -1,7 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>Settings</class>
  <widget class="QDialog" name="Settings">
   <property name="geometry">
@@ -31,8 +29,59 @@
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
+  <widget class="QWidget" name="formLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>261</width>
+     <height>281</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="roomsNumberLabel">
+      <property name="text">
+       <string>Rooms number</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QSpinBox" name="spinRooms"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="fansNumberLabel">
+      <property name="text">
+       <string>Fans number</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QSpinBox" name="spinFansCount"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="simulationTimeLabel">
+      <property name="text">
+       <string>Simulation time</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QDoubleSpinBox" name="doubleSpinSimTime"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="simulationStepLabel">
+      <property name="text">
+       <string>Simulation step</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QSpinBox" name="simulationStepSpinBox"/>
+    </item>
+   </layout>
+  </widget>
  </widget>
- <pixmapfunction/>
  <resources/>
  <connections>
   <connection>

@@ -7,6 +7,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    settings = new Settings();
+
+    ui->lcdNumberFans ->display(settings->fansCount);
+
 }
 
 MainWindow::~MainWindow()
@@ -17,6 +21,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_toolButton_clicked()
 {
-    QWidget* settings = new Settings();
+
     settings->show();
 }

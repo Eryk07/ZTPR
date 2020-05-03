@@ -27,6 +27,7 @@ SOURCES += \
 
 HEADERS += \
     factors/airconditioning.h \
+    factors/conditions.h \
     factors/factor.h \
     factors/fan.h \
     factors/people.h \
