@@ -27,13 +27,13 @@
      <string>Settings</string>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="lcdNumberFans">
+   <widget class="QCustomPlot" name="customPlot" native="true">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>92</y>
-      <width>64</width>
-      <height>21</height>
+      <x>170</x>
+      <y>110</y>
+      <width>421</width>
+      <height>321</height>
      </rect>
     </property>
    </widget>
@@ -50,6 +50,14 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

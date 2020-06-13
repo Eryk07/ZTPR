@@ -1,6 +1,6 @@
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++11
 
@@ -23,6 +23,7 @@ SOURCES += \
     factors/person.cpp \
     main.cpp \
     mainwindow.cpp \
+    qcustomplot.cpp \
     settings.cpp
 
 HEADERS += \
@@ -33,11 +34,17 @@ HEADERS += \
     factors/people.h \
     factors/person.h \
     mainwindow.h \
+    qcustomplot.h \
     settings.h
 
 FORMS += \
     mainwindow.ui \
     settings.ui
+
+win32 {
+    INCLUDEPATH += C:/boost/boost_1_73_0
+    LIBS += -LC:/boost/boost_1_73_0/stage/lib
+}
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
