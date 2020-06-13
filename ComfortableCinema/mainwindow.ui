@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>965</width>
+    <height>646</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,25 +17,49 @@
    <widget class="QToolButton" name="toolButton">
     <property name="geometry">
      <rect>
-      <x>697</x>
-      <y>20</y>
-      <width>71</width>
+      <x>810</x>
+      <y>10</y>
+      <width>141</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>Settings</string>
+     <string>Settings...</string>
     </property>
    </widget>
-   <widget class="QCustomPlot" name="customPlot" native="true">
+   <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>110</y>
-      <width>421</width>
-      <height>321</height>
+      <x>810</x>
+      <y>480</y>
+      <width>141</width>
+      <height>51</height>
      </rect>
     </property>
+    <property name="text">
+     <string>Start Simulation</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>0</y>
+      <width>751</width>
+      <height>591</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QCustomPlot" name="tempPlot" native="true"/>
+     </item>
+     <item>
+      <widget class="QCustomPlot" name="humidityPlot" native="true"/>
+     </item>
+     <item>
+      <widget class="QCustomPlot" name="co2Plot" native="true"/>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -43,7 +67,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>965</width>
      <height>25</height>
     </rect>
    </property>

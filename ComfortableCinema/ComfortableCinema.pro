@@ -16,6 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    cinema.cpp \
     factors/airconditioning.cpp \
     factors/factor.cpp \
     factors/fan.cpp \
@@ -24,9 +25,12 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     qcustomplot.cpp \
-    settings.cpp
+    screeningroom.cpp \
+    settings.cpp \
+    simulation.cpp
 
 HEADERS += \
+    cinema.h \
     factors/airconditioning.h \
     factors/conditions.h \
     factors/factor.h \
@@ -35,7 +39,9 @@ HEADERS += \
     factors/person.h \
     mainwindow.h \
     qcustomplot.h \
-    settings.h
+    screeningroom.h \
+    settings.h \
+    simulation.h
 
 FORMS += \
     mainwindow.ui \

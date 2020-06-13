@@ -2,6 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <qcustomplot.h>
+#include <vector>
+
+#include "cinema.h"
+#include "factors/conditions.h"
 #include "settings.h"
 
 QT_BEGIN_NAMESPACE
@@ -20,9 +25,12 @@ public:
 
 private slots:
     void on_toolButton_clicked();
-    void makePlot();
+    void makePlot(QCustomPlot* plot, QVector<double> x, QVector<double> y);
+    void on_pushButton_clicked();
 
 private:
+    Cinema* cinema;
+    std::vector<Conditions> currentRoomConditions;
     Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H
