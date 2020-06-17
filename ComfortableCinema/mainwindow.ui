@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QToolButton" name="toolButton">
+   <widget class="QToolButton" name="settingsButton">
     <property name="geometry">
      <rect>
       <x>810</x>
@@ -27,7 +27,7 @@
      <string>Settings...</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="simulationButton">
     <property name="geometry">
      <rect>
       <x>810</x>

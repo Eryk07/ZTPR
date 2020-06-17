@@ -17,13 +17,13 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_toolButton_clicked()
+void MainWindow::on_settingsButton_clicked()
 {
 
     settings->show();
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_simulationButton_clicked()
 {
     // generate some data:                                              //TU ZROBIĆ TEMPLATE???
     QVector<double> x(1001); // initialize with entries 0..1000

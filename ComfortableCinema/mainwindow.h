@@ -24,9 +24,9 @@ public:
     Settings* settings;
 
 private slots:
-    void on_toolButton_clicked();
+    void on_settingsButton_clicked();
     void makePlot(QCustomPlot* plot, QVector<double> x, QVector<double> y);
-    void on_pushButton_clicked();
+    void on_simulationButton_clicked();
 
 private:
     Cinema* cinema;
