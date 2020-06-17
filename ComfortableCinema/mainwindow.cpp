@@ -6,7 +6,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     cinema = new Cinema();
-    this->currentRoomConditions = cinema ->getRoomConditions(1);
     ui->setupUi(this);
     settings = new Settings();
 
@@ -25,6 +24,8 @@ void MainWindow::on_settingsButton_clicked()
 
 void MainWindow::on_simulationButton_clicked()
 {
+    this->cinema->updateRooms();
+    this->currentRoomConditions = cinema ->getRoomConditions(0);
     // generate some data:                                              //TU ZROBIĆ TEMPLATE???
     QVector<double> x(1001); // initialize with entries 0..1000
 //    for (int i=0; i<100; ++i)
@@ -55,6 +56,6 @@ void MainWindow::makePlot(QCustomPlot* plot, QVector<double> x, QVector<double> 
     plot->yAxis->setLabel("y");
     // set axes ranges, so we see all data:
     plot->xAxis->setRange(0, 1000); //docelowo simtime!!
-    plot->yAxis->setRange(0, 600000);
+    plot->yAxis->setRange(0, 600000); // docelowo 1.1*max wektora
     plot->replot();
 }

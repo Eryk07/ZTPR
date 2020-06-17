@@ -10,6 +10,7 @@ class Cinema
 {
 public:
     Cinema();
+    ~Cinema();
 
     void updateRooms();
     std::vector<Conditions> getRoomConditions(int roomId);
