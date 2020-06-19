@@ -35,20 +35,31 @@ void MainWindow::on_simulationButton_clicked()
         co2.push_back(this->currentRoomConditions[i].CO2);
     }
 
-    makePlot(ui->tempPlot, times, temperature);
-    makePlot(ui->humidityPlot, times, humidity);
-    makePlot(ui->co2Plot, times, co2);
+    makePlot(ui->tempPlot, times, temperature, 1);
+    makePlot(ui->humidityPlot, times, humidity, 2);
+    makePlot(ui->co2Plot, times, co2, 3);
 
 }
 
-void MainWindow::makePlot(QCustomPlot* plot, QVector<double> x, QVector<double> y)
+void MainWindow::makePlot(QCustomPlot* plot, QVector<double> x, QVector<double> y, int plotType)
 {
     // create graph and assign data to it:
     plot->addGraph();
     plot->graph(0)->setData(x, y);
     // give the axes some labels:
-    plot->xAxis->setLabel("x");
-    plot->yAxis->setLabel("y");
+    plot->xAxis->setLabel("Time [s]");
+    switch (plotType)
+    {
+        case 1:
+            plot->yAxis->setLabel("T['C]");
+            break;
+        case 2:
+            plot->yAxis->setLabel("H[%]");
+            break;
+        case 3:
+            plot->yAxis->setLabel("CO2[ppm]");
+            break;
+    }
 
     double* max = std::max_element(y.begin(), y.end());
     int max_index = std::distance(y.begin(), max);
