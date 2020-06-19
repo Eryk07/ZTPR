@@ -1,9 +1,12 @@
 #ifndef PEOPLE_H
 #define PEOPLE_H
+
+#include <iostream>
+#include <random>
+#include <vector>
+
 #include "factor.h"
 #include "person.h"
-#include <iostream>
-#include <vector>
 
 class People : public Factor
 {
