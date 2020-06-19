@@ -27,3 +27,8 @@ std::vector<Conditions> Cinema::getRoomConditions(int roomId)
 {
     return rooms[roomId].conditionsHistory;
 }
+
+QVector<double> Cinema::getRoomSimTime(int roomId)
+{
+    return rooms[roomId].timestamps;
+}

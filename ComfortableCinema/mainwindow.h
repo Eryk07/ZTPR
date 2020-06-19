@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <qcustomplot.h>
 #include <vector>
+#include <algorithm>
 
 #include "cinema.h"
 #include "factors/conditions.h"

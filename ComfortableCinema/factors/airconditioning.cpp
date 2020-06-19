@@ -1,6 +1,6 @@
 #include "airconditioning.h"
 
-AirConditioning::AirConditioning()
+AirConditioning::AirConditioning(int fansCount)
 {
 
 }
@@ -15,3 +15,7 @@ double AirConditioning::changeHumidity()
     return 0;
 }
 
+double AirConditioning::changeCO2()
+{
+    return 0;
+}

@@ -12,8 +12,9 @@ public:
     ScreeningRoom();
     int roomId;
     std::vector<Conditions> conditionsHistory;
+    QVector<double> timestamps;
 
-    Conditions processSimulation();
+    void processSimulation();
 
 
 private:

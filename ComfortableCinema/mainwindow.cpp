@@ -26,23 +26,18 @@ void MainWindow::on_simulationButton_clicked()
 {
     this->cinema->updateRooms();
     this->currentRoomConditions = cinema ->getRoomConditions(0);
-    // generate some data:                                              //TU ZROBIĆ TEMPLATE???
-    QVector<double> x(1001); // initialize with entries 0..1000
-//    for (int i=0; i<100; ++i)
-//    {
-//      x[i] = i/50.0 - 1; // x goes from -1 to 1
-//      y[i] = x[i]*x[i]; // let's plot a quadratic function
-//    }
-    QVector<double> tmp(1001);
+    QVector<double> times = cinema -> getRoomSimTime(0);
+    QVector<double> temperature, humidity, co2;
     for (unsigned int i=0; i<this->currentRoomConditions.size(); ++i)
     {
-        x[i] = i;
-        tmp[i] = this->currentRoomConditions[i].temperature;
+        temperature.push_back(this->currentRoomConditions[i].temperature);
+        humidity.push_back(this->currentRoomConditions[i].humidity);
+        co2.push_back(this->currentRoomConditions[i].CO2);
     }
 
-    makePlot(ui->tempPlot, x, tmp);
-    makePlot(ui->humidityPlot, x, tmp);
-    makePlot(ui->co2Plot, x, tmp);
+    makePlot(ui->tempPlot, times, temperature);
+    makePlot(ui->humidityPlot, times, humidity);
+    makePlot(ui->co2Plot, times, co2);
 
 }
 
@@ -54,8 +49,11 @@ void MainWindow::makePlot(QCustomPlot* plot, QVector<double> x, QVector<double> 
     // give the axes some labels:
     plot->xAxis->setLabel("x");
     plot->yAxis->setLabel("y");
-    // set axes ranges, so we see all data:
-    plot->xAxis->setRange(0, 1000); //docelowo simtime!!
-    plot->yAxis->setRange(0, 600000); // docelowo 1.1*max wektora
+
+    double* max = std::max_element(y.begin(), y.end());
+    int max_index = std::distance(y.begin(), max);
+
+    plot->xAxis->setRange(0, x[x.size()-1]); //docelowo simtime!!
+    plot->yAxis->setRange(0, 1.1*y[max_index]);
     plot->replot();
 }

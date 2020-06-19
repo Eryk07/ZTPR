@@ -9,12 +9,13 @@
 class AirConditioning : public Factor
 {
 public:
-    AirConditioning();
+    AirConditioning(int fansCount);
 
     std::vector<Fan> fans;
 
     double changeTemperature() override;
     double changeHumidity() override;
+    double changeCO2() override;
 
 };
 

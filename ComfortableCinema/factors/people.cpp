@@ -1,6 +1,6 @@
 #include "people.h"
 
-People::People()
+People::People(int peopleCount)
 {
 
 }

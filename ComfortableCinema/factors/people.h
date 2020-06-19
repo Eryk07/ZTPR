@@ -8,7 +8,7 @@
 class People : public Factor
 {
 public:
-    People();
+    People(int peopleCount);
 
     std::vector<Person> people;
 
