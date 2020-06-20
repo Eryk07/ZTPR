@@ -14,7 +14,7 @@ public:
     std::vector<Fan> fans;
 
     double changeTemperature(double roomTemperature, double roomVolume) override;
-    double changeHumidity() override;
+    double changeHumidity(double roomHumidity, double roomVolume) override;
     double changeCO2() override;
 
 };

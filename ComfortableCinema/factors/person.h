@@ -4,9 +4,10 @@
 class Person
 {
 public:
-    Person(double temperature, double CO2);
+    Person(double temperature, double CO2, double humidity);
 
     double temperature;
+    double humidity;
     double CO2;
 
 };

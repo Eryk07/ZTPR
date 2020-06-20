@@ -3,15 +3,17 @@
 People::People(int peopleCount)
 {
     std::default_random_engine generator;
-    std::normal_distribution<double> temperatureDistribution(36.8, 0.3);    //wikipedia
+    std::normal_distribution<double> temperatureDistribution(36.8, 0.3);    //  wikipedia
     std::normal_distribution<double> CO2Distribution(0.138, 0.01);    //  person by average generate 0,138 kg of CO2 per 2h (average movie)
-    double generatedTemperature, generatedCO2;
+    std::normal_distribution<double> humidityDistribution(0.027, 0.007); //     person by average loose 0,027 kg of water with breath per 2h
+    double generatedTemperature, generatedCO2, generatedHumidity;
 
     for (int i=0; i<peopleCount; ++i)
     {
         generatedTemperature = temperatureDistribution(generator);
         generatedCO2 = CO2Distribution(generator);
-        this->people.push_back(Person(generatedTemperature, generatedCO2));
+        generatedHumidity = humidityDistribution(generator);
+        this->people.push_back(Person(generatedTemperature, generatedCO2, generatedHumidity));
     }
 }
 
@@ -22,18 +24,26 @@ double People::changeTemperature(double roomTemperature, double roomVolume)
     for (unsigned int i=0; i<this->people.size(); ++i)
         peopleHeat += (this->people[i].temperature - roomTemperature) / this->thermalResist;
 
-    if (peopleHeat != 0)
-        return  peopleHeat/roomVolume;
-    else
-        return 0;
+    return  peopleHeat/roomVolume;
 }
 
-double People::changeHumidity()
+double People::changeHumidity(double roomHumidity, double roomVolume)
 {
-    return 0;
+    double dryAirMass = roomVolume * this->airDens;
+    double wetAirMass = 0;
+
+    for (unsigned int i=0; i<this->people.size(); ++i)
+        wetAirMass += this->people[i].humidity;
+
+    return wetAirMass/dryAirMass;
 }
 
 double People::changeCO2()
 {
-    return 0;
+    double CO2Mass = 0;
+
+    for (unsigned int i=0; i<this->people.size(); ++i)
+        CO2Mass += this->people[i].CO2;
+
+    return CO2Mass;
 }

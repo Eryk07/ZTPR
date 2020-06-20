@@ -10,7 +10,7 @@ double AirConditioning::changeTemperature(double roomTemperature, double roomVol
     return 0;
 }
 
-double AirConditioning::changeHumidity()
+double AirConditioning::changeHumidity(double roomHumidity, double roomVolume)
 {
     return 0;
 }
