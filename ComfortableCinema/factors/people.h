@@ -15,9 +15,12 @@ public:
 
     std::vector<Person> people;
 
-    double changeTemperature() override;
+    double changeTemperature(double roomTemperature, double roomVolume) override;
     double changeHumidity() override;
     double changeCO2() override;
+
+private:
+    const double thermalResist = 0.25;
 };
 
 #endif // PEOPLE_H

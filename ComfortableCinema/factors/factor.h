@@ -6,7 +6,7 @@ class Factor
 {
 public:
     Factor();
-    virtual double changeTemperature() = 0;
+    virtual double changeTemperature(double roomTemperature, double roomVolume) = 0;
     virtual double changeHumidity() = 0;
     virtual double changeCO2() = 0;
 };

@@ -5,7 +5,7 @@ AirConditioning::AirConditioning(int fansCount)
 
 }
 
-double AirConditioning::changeTemperature()
+double AirConditioning::changeTemperature(double roomTemperature, double roomVolume)
 {
     return 0;
 }

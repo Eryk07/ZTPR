@@ -15,9 +15,17 @@ People::People(int peopleCount)
     }
 }
 
-double People::changeTemperature()
+double People::changeTemperature(double roomTemperature, double roomVolume)
 {
-    return 0;
+    double peopleHeat = 0;
+
+    for (unsigned int i=0; i<this->people.size(); ++i)
+        peopleHeat += (this->people[i].temperature - roomTemperature) / this->thermalResist;
+
+    if (peopleHeat != 0)
+        return  peopleHeat/roomVolume;
+    else
+        return 0;
 }
 
 double People::changeHumidity()
