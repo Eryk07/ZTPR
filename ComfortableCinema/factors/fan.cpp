@@ -1,16 +1,11 @@
 #include "fan.h"
 
-Fan::Fan()
+Fan::Fan(double speed)
 {
-
+    this->speed = speed;
 }
 
-double Fan::changeTemperature()
+void Fan::changeSpeed(double newSpeed)
 {
-    return 0;
-}
-
-void Fan::changeSpeed()
-{
-
+    this->speed = newSpeed;
 }
