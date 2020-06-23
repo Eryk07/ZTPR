@@ -16,22 +16,32 @@ public:
     explicit Settings(QWidget *parent = nullptr);
     ~Settings();
 
-    int rooms;
+    int roomsCount;
+    double roomVolume;
     Conditions weather;
+    int peopleCount;
     int fansCount;
+    double fanSpeed;
     Conditions initConditions;
     double simulationTime;
-    int simulationStep;
+    double simulationStep;
 
 
 private slots:
-    void on_spinFansCount_valueChanged(int _fansCount);
 
-    void on_spinRooms_valueChanged(int _rooms);
+    void on_fansCountSpinBox_valueChanged(int _fansCount);
 
-    void on_doubleSpinSimTime_valueChanged(double _simTime);
+    void on_fanSpeedDoubleSpinBox_valueChanged(double _fanSpeed);
 
-    void on_simulationStepSpinBox_valueChanged(int _simStep);
+    void on_roomsCountSpinBox_valueChanged(int _roomsCount);
+
+    void on_roomVolumeDoubleSpinBox_valueChanged(double _roomVolume);
+
+    void on_peopleCountSpinBox_valueChanged(int _peopleCount);
+
+    void on_simulationTimeDoubleSpinBox_valueChanged(double _simTime);
+
+    void on_simulationStepDoubleSpinBox_valueChanged(double _simStep);
 
     void on_weatherCO2doubleSpinBox_valueChanged(double _weatherCO2);
 

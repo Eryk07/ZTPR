@@ -1,27 +1,36 @@
 #include "cinema.h"
 
-Cinema::Cinema()
+Cinema::Cinema(Settings* settings)
 {
+    this->settings = settings;
 
+    for(int i=0; i<this->settings->roomsCount; i++)
+    {
+        rooms.push_back(ScreeningRoom(settings));
+    }
+}
+
+Cinema::~Cinema()
+{
+    rooms.clear();
 }
 
 void Cinema::updateRooms()
 {
-
+    for(unsigned int i=0; i<rooms.size(); i++)
+    {
+        if(!rooms[i].conditionsHistory.empty())
+            rooms[i].conditionsHistory.clear();
+        rooms[i].processSimulation();
+    }
 }
 
 std::vector<Conditions> Cinema::getRoomConditions(int roomId)
 {
-    std::vector<Conditions> roomConditions;
-    Conditions momentCondition;
-    for (int i=0; i<1001; i++)
-    {
-        momentCondition.CO2 += (i*0.3);
-        momentCondition.humidity += (i*0.8);
-        momentCondition.temperature += i;
+    return rooms[roomId].conditionsHistory;
+}
 
-        roomConditions.push_back(momentCondition);
-    }
-
-    return roomConditions;
+QVector<double> Cinema::getRoomSimTime(int roomId)
+{
+    return rooms[roomId].timestamps;
 }

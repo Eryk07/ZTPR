@@ -5,15 +5,11 @@
 class Fan
 {
 public:
-    Fan();
+    Fan(double speed);
 
-    int id;
     double speed;
 
-    double changeTemperature();
-
-private:
-    void changeSpeed();
+    void changeSpeed(double newSpeed);
 };
 
 #endif // FAN_H

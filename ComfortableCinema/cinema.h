@@ -9,14 +9,17 @@
 class Cinema
 {
 public:
-    Cinema();
+    Cinema(Settings* settings);
+    ~Cinema();
 
     void updateRooms();
     std::vector<Conditions> getRoomConditions(int roomId);
+    QVector<double> getRoomSimTime(int roomId);
 
 
 private:
     std::vector<ScreeningRoom> rooms;
+    Settings* settings;
 };
 
 #endif // CINEMA_H

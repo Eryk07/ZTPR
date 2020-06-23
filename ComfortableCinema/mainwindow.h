@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <qcustomplot.h>
 #include <vector>
+#include <algorithm>
 
 #include "cinema.h"
 #include "factors/conditions.h"
@@ -24,9 +25,9 @@ public:
     Settings* settings;
 
 private slots:
-    void on_toolButton_clicked();
-    void makePlot(QCustomPlot* plot, QVector<double> x, QVector<double> y);
-    void on_pushButton_clicked();
+    void on_settingsButton_clicked();
+    void makePlot(QCustomPlot* plot, QVector<double> x, QVector<double> y, int plotType);
+    void on_simulationButton_clicked();
 
 private:
     Cinema* cinema;

@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>404</width>
-    <height>310</height>
+    <height>352</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Settings</string>
   </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
@@ -35,49 +35,79 @@
      <x>10</x>
      <y>10</y>
      <width>261</width>
-     <height>121</height>
+     <height>213</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
     <item row="0" column="0">
-     <widget class="QLabel" name="roomsNumberLabel">
+     <widget class="QLabel" name="roomsCountLabel">
       <property name="text">
        <string>Rooms number</string>
       </property>
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QSpinBox" name="spinRooms"/>
+     <widget class="QSpinBox" name="roomsCountSpinBox"/>
     </item>
     <item row="1" column="0">
-     <widget class="QLabel" name="fansNumberLabel">
+     <widget class="QLabel" name="roomVolumeLabel">
+      <property name="text">
+       <string>Room volume</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QDoubleSpinBox" name="roomVolumeDoubleSpinBox"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="peopleCountLabel">
+      <property name="text">
+       <string>People number</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="fansCountLabel">
       <property name="text">
        <string>Fans number</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="QSpinBox" name="spinFansCount"/>
+    <item row="4" column="1">
+     <widget class="QSpinBox" name="fansCountSpinBox"/>
     </item>
-    <item row="2" column="0">
+    <item row="5" column="0">
      <widget class="QLabel" name="simulationTimeLabel">
       <property name="text">
        <string>Simulation time</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="1">
-     <widget class="QDoubleSpinBox" name="doubleSpinSimTime"/>
+    <item row="5" column="1">
+     <widget class="QDoubleSpinBox" name="simulationTimeDoubleSpinBox"/>
     </item>
-    <item row="3" column="0">
+    <item row="6" column="0">
      <widget class="QLabel" name="simulationStepLabel">
       <property name="text">
        <string>Simulation step</string>
       </property>
      </widget>
     </item>
+    <item row="6" column="1">
+     <widget class="QDoubleSpinBox" name="simulationStepDoubleSpinBox"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="fanSpeedLabel">
+      <property name="text">
+       <string>Fan speed</string>
+      </property>
+     </widget>
+    </item>
     <item row="3" column="1">
-     <widget class="QSpinBox" name="simulationStepSpinBox"/>
+     <widget class="QDoubleSpinBox" name="fanSpeedDoubleSpinBox"/>
+    </item>
+    <item row="2" column="1">
+     <widget class="QSpinBox" name="peopleCountSpinBox"/>
     </item>
    </layout>
   </widget>
@@ -85,7 +115,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>160</y>
+     <y>240</y>
      <width>193</width>
      <height>91</height>
     </rect>
@@ -133,7 +163,7 @@
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>160</y>
+     <y>240</y>
      <width>181</width>
      <height>91</height>
     </rect>

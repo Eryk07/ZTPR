@@ -9,17 +9,17 @@
 class ScreeningRoom
 {
 public:
-    ScreeningRoom();
-    int roomId;
+    ScreeningRoom(Settings* settings);
     std::vector<Conditions> conditionsHistory;
+    QVector<double> timestamps;
 
-    Conditions processSimulation();
+    void processSimulation();
 
 
 private:
     Simulation* simulation;
     Conditions innerConditions;
-
+    Settings* settings;
 };
 
 #endif // SCREENINGROOM_H

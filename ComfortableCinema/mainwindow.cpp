@@ -5,11 +5,9 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    cinema = new Cinema();
-    this->currentRoomConditions = cinema ->getRoomConditions(1);
-    ui->setupUi(this);
     settings = new Settings();
-
+    cinema = new Cinema(settings);
+    ui->setupUi(this);
 }
 
 MainWindow::~MainWindow()
@@ -17,44 +15,54 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_toolButton_clicked()
+void MainWindow::on_settingsButton_clicked()
 {
-
     settings->show();
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_simulationButton_clicked()
 {
-    // generate some data:                                              //TU ZROBIĆ TEMPLATE???
-    QVector<double> x(1001); // initialize with entries 0..1000
-//    for (int i=0; i<100; ++i)
-//    {
-//      x[i] = i/50.0 - 1; // x goes from -1 to 1
-//      y[i] = x[i]*x[i]; // let's plot a quadratic function
-//    }
-    QVector<double> tmp(1001);
+    this->cinema->updateRooms();
+    this->currentRoomConditions = cinema ->getRoomConditions(0);
+    QVector<double> times = cinema -> getRoomSimTime(0);
+    QVector<double> temperature, humidity, co2;
     for (unsigned int i=0; i<this->currentRoomConditions.size(); ++i)
     {
-        x[i] = i;
-        tmp[i] = this->currentRoomConditions[i].temperature;
+        temperature.push_back(this->currentRoomConditions[i].temperature);
+        humidity.push_back(this->currentRoomConditions[i].humidity);
+        co2.push_back(this->currentRoomConditions[i].CO2);
     }
 
-    makePlot(ui->tempPlot, x, tmp);
-    makePlot(ui->humidityPlot, x, tmp);
-    makePlot(ui->co2Plot, x, tmp);
+    makePlot(ui->tempPlot, times, temperature, 1);
+    makePlot(ui->humidityPlot, times, humidity, 2);
+    makePlot(ui->co2Plot, times, co2, 3);
 
 }
 
-void MainWindow::makePlot(QCustomPlot* plot, QVector<double> x, QVector<double> y)
+void MainWindow::makePlot(QCustomPlot* plot, QVector<double> x, QVector<double> y, int plotType)
 {
     // create graph and assign data to it:
     plot->addGraph();
     plot->graph(0)->setData(x, y);
     // give the axes some labels:
-    plot->xAxis->setLabel("x");
-    plot->yAxis->setLabel("y");
-    // set axes ranges, so we see all data:
-    plot->xAxis->setRange(0, 1000); //docelowo simtime!!
-    plot->yAxis->setRange(0, 600000);
+    plot->xAxis->setLabel("Time [s]");
+    switch (plotType)
+    {
+        case 1:
+            plot->yAxis->setLabel("T['C]");
+            break;
+        case 2:
+            plot->yAxis->setLabel("H[%]");
+            break;
+        case 3:
+            plot->yAxis->setLabel("CO2[ppm]");
+            break;
+    }
+
+    double* max = std::max_element(y.begin(), y.end());
+    int max_index = std::distance(y.begin(), max);
+
+    plot->xAxis->setRange(0, this->settings->simulationTime);//x[x.size()-1]); //docelowo simtime!!
+    plot->yAxis->setRange(0, 1.1*y[max_index]);
     plot->replot();
 }
