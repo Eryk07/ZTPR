@@ -9,7 +9,7 @@
 class Cinema
 {
 public:
-    Cinema();
+    Cinema(Settings* settings);
     ~Cinema();
 
     void updateRooms();
@@ -19,6 +19,7 @@ public:
 
 private:
     std::vector<ScreeningRoom> rooms;
+    Settings* settings;
 };
 
 #endif // CINEMA_H

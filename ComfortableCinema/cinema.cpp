@@ -1,7 +1,8 @@
 #include "cinema.h"
 
-Cinema::Cinema()
+Cinema::Cinema(Settings* settings)
 {
+    this->settings = settings;
     int roomsCount= 1;  // docelowo to będzie zdefiniowane settings
 
     for(int i=0; i<roomsCount; i++)
