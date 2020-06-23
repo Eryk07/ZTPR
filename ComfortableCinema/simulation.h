@@ -18,16 +18,15 @@ typedef std::vector< double > state_type;
 class Simulation
 {
 public:
-    Simulation();
+    Simulation(Settings* settings);
 
-    Settings* settings;
     std::vector<Factor*> factors;
 
     void simulate(std::vector<Conditions> &roomConditions, QVector<double> &roomTimesteps);
 
 private:
+    Settings *settings;
     void setFactors();
-    static void model(const state_type &x , state_type &dxdt, const double /* t */);
 
 };
 

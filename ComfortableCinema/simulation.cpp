@@ -1,7 +1,8 @@
 #include "simulation.h"
 
-Simulation::Simulation()
+Simulation::Simulation(Settings *settings)
 {
+    this->settings = settings;
     this->setFactors();
 }
 

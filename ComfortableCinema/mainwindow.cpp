@@ -5,9 +5,9 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    this->settings = new Settings();
     cinema = new Cinema(settings);
     ui->setupUi(this);
-    settings = new Settings();
 
 }
 
