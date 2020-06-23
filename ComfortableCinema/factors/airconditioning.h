@@ -9,7 +9,7 @@
 class AirConditioning : public Factor
 {
 public:
-    AirConditioning(int fansCount);
+    AirConditioning(int fansCount, double initSpeed);
 
     std::vector<Fan> fans;
 
