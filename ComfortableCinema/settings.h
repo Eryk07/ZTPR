@@ -16,12 +16,15 @@ public:
     explicit Settings(QWidget *parent = nullptr);
     ~Settings();
 
-    int rooms;
+    int roomsCount;
+    double roomVolume;
     Conditions weather;
+    int peopleCount;
     int fansCount;
+    double speed;
     Conditions initConditions;
     double simulationTime;
-    int simulationStep;
+    double simulationStep;
 
 
 private slots:

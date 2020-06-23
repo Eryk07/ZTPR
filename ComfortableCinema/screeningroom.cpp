@@ -3,7 +3,7 @@
 ScreeningRoom::ScreeningRoom(Settings* settings)
 {
     this->settings = settings;
-    this->simulation = new Simulation();
+    this->simulation = new Simulation(settings);
 
 }
 

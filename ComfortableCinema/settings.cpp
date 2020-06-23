@@ -5,10 +5,13 @@ Settings::Settings(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Settings)
 {
-    rooms = 2;
+    roomsCount = 1;
+    roomVolume = 100000.0;
+    peopleCount = 100;
     fansCount = 4;
+    speed = 1.0;
     simulationTime = 300.0;
-    simulationStep = 4;
+    simulationStep = 1.0;
 
     weather.CO2 = 415.5;
     weather.temperature = 20.5;
@@ -30,7 +33,7 @@ Settings::~Settings()
 void Settings::initSpinBoxes()
 {
     // general
-    ui->spinRooms->setValue(rooms);
+    ui->spinRooms->setValue(roomsCount);
     ui->spinRooms->setRange(1, 8);
 
     ui->spinFansCount->setValue(fansCount);
@@ -79,7 +82,7 @@ void Settings::initSpinBoxes()
 
 void Settings::on_spinRooms_valueChanged(int _rooms)
 {
-    rooms = _rooms;
+    roomsCount = _rooms;
 }
 
 void Settings::on_spinFansCount_valueChanged(int _fansCount)

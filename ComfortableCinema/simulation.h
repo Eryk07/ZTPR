@@ -36,16 +36,16 @@ public:
     Model(std::vector<Factor*> _factors, double _roomVolume)
     {
         factors = _factors;
-        roomValue = _roomVolume;
+        roomVolume = _roomVolume;
     }
     void operator()( const state_type &x , state_type &dxdt , const double /* t */ )
     {
             double sumTemp=0, sumCO2=0, sumHumidity=0;
             for (int i = 0; i < this->factors.size(); i++)
             {
-                sumTemp += this->factors[i]->changeTemperature(x[0], this->roomValue);
+                sumTemp += this->factors[i]->changeTemperature(x[0], this->roomVolume);
                 sumCO2 += this->factors[i]->changeCO2();
-                sumHumidity += this->factors[i]->changeHumidity(x[2], this->roomValue);
+                sumHumidity += this->factors[i]->changeHumidity(x[2], this->roomVolume);
             }
 
             dxdt[0] = sumTemp;     // temperature
@@ -54,7 +54,7 @@ public:
     }
 private:
     std::vector<Factor*> factors;
-    double roomValue;
+    double roomVolume;
 };
 
 struct observer

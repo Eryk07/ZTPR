@@ -10,7 +10,6 @@ class ScreeningRoom
 {
 public:
     ScreeningRoom(Settings* settings);
-    int roomId;
     std::vector<Conditions> conditionsHistory;
     QVector<double> timestamps;
 
