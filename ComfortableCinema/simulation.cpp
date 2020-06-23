@@ -11,7 +11,7 @@ void Simulation::setFactors()
     int peopleCount = this->settings->peopleCount; // domyślnie połączenie z PeopleManager ze ScreeningRoom
 
     this->factors.clear();
-    this->factors.push_back(new AirConditioning(this->settings->fansCount, this->settings->speed));
+    this->factors.push_back(new AirConditioning(this->settings->fansCount, this->settings->fanSpeed));
     this->factors.push_back(new People(peopleCount));
 }
 

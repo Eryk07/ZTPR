@@ -9,7 +9,7 @@ Settings::Settings(QWidget *parent) :
     roomVolume = 100000.0;
     peopleCount = 100;
     fansCount = 4;
-    speed = 1.0;
+    fanSpeed = 1.0;
     simulationTime = 300.0;
     simulationStep = 1.0;
 
@@ -33,21 +33,34 @@ Settings::~Settings()
 void Settings::initSpinBoxes()
 {
     // general
-    ui->spinRooms->setValue(roomsCount);
-    ui->spinRooms->setRange(1, 8);
+    ui->roomsCountSpinBox->setValue(roomsCount);
+    ui->roomsCountSpinBox->setRange(1, 8);
 
-    ui->spinFansCount->setValue(fansCount);
-    ui->spinFansCount->setRange(1, 4);
+    ui->roomVolumeDoubleSpinBox->setRange(500, 6000);
+    ui->roomVolumeDoubleSpinBox->setSingleStep(0.5);
+    ui->roomVolumeDoubleSpinBox->setDecimals(1);
+    ui->roomVolumeDoubleSpinBox->setValue(roomVolume);
 
+    ui->peopleCountSpinBox->setValue(roomsCount);
+    ui->peopleCountSpinBox->setRange(1, 300);
 
-    ui->doubleSpinSimTime->setRange(1, 1000);
-    ui->doubleSpinSimTime->setSingleStep(0.5);
-    ui->doubleSpinSimTime->setDecimals(1);
-    ui->doubleSpinSimTime->setValue(simulationTime);
+    ui->fanSpeedDoubleSpinBox->setRange(0, 5);
+    ui->fanSpeedDoubleSpinBox->setSingleStep(0.1);
+    ui->fanSpeedDoubleSpinBox->setDecimals(1);
+    ui->fanSpeedDoubleSpinBox->setValue(fanSpeed);
 
-    ui->simulationStepSpinBox->setValue(simulationStep);
-    ui->simulationStepSpinBox->setRange(1, 8);
+    ui->fansCountSpinBox->setValue(fansCount);
+    ui->fansCountSpinBox->setRange(0, 4);
 
+    ui->simulationTimeDoubleSpinBox->setRange(1, 2000);
+    ui->simulationTimeDoubleSpinBox->setSingleStep(0.5);
+    ui->simulationTimeDoubleSpinBox->setDecimals(1);
+    ui->simulationTimeDoubleSpinBox->setValue(simulationTime);
+
+    ui->simulationStepDoubleSpinBox->setRange(1, 60);
+    ui->simulationStepDoubleSpinBox->setSingleStep(0.5);
+    ui->simulationStepDoubleSpinBox->setDecimals(1);
+    ui->simulationStepDoubleSpinBox->setValue(simulationStep);
 
     //weather
     ui->weatherCO2doubleSpinBox->setRange(350.0, 500.0);
@@ -70,7 +83,6 @@ void Settings::initSpinBoxes()
     ui->initCO2doubleSpinBox->setDecimals(1);
     ui->initCO2doubleSpinBox->setValue(initConditions.CO2);
 
-
     ui->initTempdoubleSpinBox->setSingleStep(0.1);
     ui->initTempdoubleSpinBox->setDecimals(1);
     ui->initTempdoubleSpinBox->setValue(initConditions.temperature);
@@ -80,22 +92,37 @@ void Settings::initSpinBoxes()
     ui->initHumiditydoubleSpinBox->setValue(initConditions.humidity);
 }
 
-void Settings::on_spinRooms_valueChanged(int _rooms)
-{
-    roomsCount = _rooms;
-}
-
-void Settings::on_spinFansCount_valueChanged(int _fansCount)
+void Settings::on_fansCountSpinBox_valueChanged(int _fansCount)
 {
     fansCount = _fansCount;
 }
 
-void Settings::on_doubleSpinSimTime_valueChanged(double _simTime)
+void Settings::on_fanSpeedDoubleSpinBox_valueChanged(double _fanSpeed)
+{
+    fanSpeed = _fanSpeed;
+}
+
+void Settings::on_roomsCountSpinBox_valueChanged(int _roomsCount)
+{
+    roomsCount = _roomsCount;
+}
+
+void Settings::on_roomVolumeDoubleSpinBox_valueChanged(double _roomVolume)
+{
+    roomVolume = _roomVolume;
+}
+
+void Settings::on_peopleCountSpinBox_valueChanged(int _peopleCount)
+{
+    peopleCount = _peopleCount;
+}
+
+void Settings::on_simulationTimeDoubleSpinBox_valueChanged(double _simTime)
 {
     simulationTime = _simTime;
 }
 
-void Settings::on_simulationStepSpinBox_valueChanged(int _simStep)
+void Settings::on_simulationStepDoubleSpinBox_valueChanged(double _simStep)
 {
     simulationStep = _simStep;
 }
