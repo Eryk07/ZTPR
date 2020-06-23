@@ -7,7 +7,7 @@ Cinema::Cinema(Settings* settings)
 
     for(int i=0; i<roomsCount; i++)
     {
-        rooms.push_back(ScreeningRoom());
+        rooms.push_back(ScreeningRoom(settings));
     }
 }
 
