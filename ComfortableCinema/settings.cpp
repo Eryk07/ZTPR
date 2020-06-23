@@ -6,7 +6,7 @@ Settings::Settings(QWidget *parent) :
     ui(new Ui::Settings)
 {
     roomsCount = 1;
-    roomVolume = 100000.0;
+    roomVolume = 1000.0;
     peopleCount = 100;
     fansCount = 4;
     fanSpeed = 1.0;
@@ -39,9 +39,9 @@ void Settings::initSpinBoxes()
     ui->roomVolumeDoubleSpinBox->setRange(500, 6000);
     ui->roomVolumeDoubleSpinBox->setSingleStep(0.5);
     ui->roomVolumeDoubleSpinBox->setDecimals(1);
-    ui->roomVolumeDoubleSpinBox->setValue(roomVolume);
+    ui->roomVolumeDoubleSpinBox->setValue(1000);
 
-    ui->peopleCountSpinBox->setValue(roomsCount);
+    ui->peopleCountSpinBox->setValue(peopleCount);
     ui->peopleCountSpinBox->setRange(1, 300);
 
     ui->fanSpeedDoubleSpinBox->setRange(0, 5);
@@ -55,7 +55,7 @@ void Settings::initSpinBoxes()
     ui->simulationTimeDoubleSpinBox->setRange(1, 2000);
     ui->simulationTimeDoubleSpinBox->setSingleStep(0.5);
     ui->simulationTimeDoubleSpinBox->setDecimals(1);
-    ui->simulationTimeDoubleSpinBox->setValue(simulationTime);
+    ui->simulationTimeDoubleSpinBox->setValue(300.0);
 
     ui->simulationStepDoubleSpinBox->setRange(1, 60);
     ui->simulationStepDoubleSpinBox->setSingleStep(0.5);
@@ -66,7 +66,7 @@ void Settings::initSpinBoxes()
     ui->weatherCO2doubleSpinBox->setRange(350.0, 500.0);
     ui->weatherCO2doubleSpinBox->setSingleStep(0.1);
     ui->weatherCO2doubleSpinBox->setDecimals(1);
-    ui->weatherCO2doubleSpinBox->setValue(weather.CO2);
+    ui->weatherCO2doubleSpinBox->setValue(415.5);
 
     ui->weatherTempdoubleSpinBox->setSingleStep(0.1);
     ui->weatherTempdoubleSpinBox->setDecimals(1);
@@ -81,7 +81,7 @@ void Settings::initSpinBoxes()
     ui->initCO2doubleSpinBox->setRange(350.0, 500.0);
     ui->initCO2doubleSpinBox->setSingleStep(0.1);
     ui->initCO2doubleSpinBox->setDecimals(1);
-    ui->initCO2doubleSpinBox->setValue(initConditions.CO2);
+    ui->initCO2doubleSpinBox->setValue(415.5);
 
     ui->initTempdoubleSpinBox->setSingleStep(0.1);
     ui->initTempdoubleSpinBox->setDecimals(1);
