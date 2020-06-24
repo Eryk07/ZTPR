@@ -103,6 +103,29 @@
      </item>
     </layout>
    </widget>
+   <widget class="QLabel" name="roomIdLabel">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>440</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Room no.</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="roomIdSpinBox">
+    <property name="geometry">
+     <rect>
+      <x>900</x>
+      <y>440</y>
+      <width>43</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

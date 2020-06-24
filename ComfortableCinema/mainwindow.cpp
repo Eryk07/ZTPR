@@ -5,9 +5,11 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    currentRoomId = 0;
     settings = new Settings();
     cinema = new Cinema(settings);
     ui->setupUi(this);
+    updateRoomIdSpinBox();
 }
 
 MainWindow::~MainWindow()
@@ -23,8 +25,8 @@ void MainWindow::on_settingsButton_clicked()
 void MainWindow::on_simulationButton_clicked()
 {
     this->cinema->updateRooms();
-    this->currentRoomConditions = cinema ->getRoomConditions(0);
-    QVector<double> times = cinema -> getRoomSimTime(0);
+    this->currentRoomConditions = cinema ->getRoomConditions(this->currentRoomId);
+    QVector<double> times = cinema -> getRoomSimTime(this->currentRoomId);
     QVector<double> temperature, humidity, co2;
     for (unsigned int i=0; i<this->currentRoomConditions.size(); ++i)
     {
@@ -65,4 +67,14 @@ void MainWindow::makePlot(QCustomPlot* plot, QVector<double> x, QVector<double> 
     plot->xAxis->setRange(0, this->settings->simulationTime);//x[x.size()-1]); //docelowo simtime!!
     plot->yAxis->setRange(0, 1.1*y[max_index]);
     plot->replot();
+}
+
+void MainWindow::on_roomIdSpinBox_valueChanged(int _roomId)
+{
+    currentRoomId = _roomId-1;
+}
+
+void MainWindow::updateRoomIdSpinBox()
+{
+    ui->roomIdSpinBox->setRange(1, settings->roomsCount);
 }

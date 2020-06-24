@@ -29,9 +29,13 @@ private slots:
     void makePlot(QCustomPlot* plot, QVector<double> x, QVector<double> y, int plotType);
     void on_simulationButton_clicked();
 
+    void on_roomIdSpinBox_valueChanged(int _roomId);
+
 private:
     Cinema* cinema;
     std::vector<Conditions> currentRoomConditions;
+    int currentRoomId;
     Ui::MainWindow *ui;
+    void updateRoomIdSpinBox();
 };
 #endif // MAINWINDOW_H
