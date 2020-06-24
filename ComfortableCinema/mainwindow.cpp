@@ -46,16 +46,23 @@ void MainWindow::makePlot(QCustomPlot* plot, QVector<double> x, QVector<double> 
     plot->graph(0)->setData(x, y);
     // give the axes some labels:
     plot->xAxis->setLabel("Time [s]");
+    QPen pen;
     switch (plotType)
     {
         case 1:
             plot->yAxis->setLabel("T['C]");
+            pen.setWidth(1);
+            pen.setColor(QColor(Qt::red));
+            plot->graph(0)->setPen(pen);
             break;
         case 2:
             plot->yAxis->setLabel("H[%]");
             break;
         case 3:
             plot->yAxis->setLabel("CO2[ppm]");
+            pen.setWidth(1);
+            pen.setColor(QColor(Qt::green));
+            plot->graph(0)->setPen(pen);
             break;
     }
 
