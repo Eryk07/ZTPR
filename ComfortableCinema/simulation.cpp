@@ -8,27 +8,27 @@ Simulation::Simulation(Settings *settings)
 
 void Simulation::setFactors()
 {
-    int peopleCount = this->settings->peopleCount; // domyślnie połączenie z PeopleManager ze ScreeningRoom
+    int peopleCount = this->settings->getPeopleCount(); // domyślnie połączenie z PeopleManager ze ScreeningRoom
 
     this->factors.clear();
-    this->factors.push_back(new AirConditioning(this->settings->fansCount, this->settings->fanSpeed));
+    this->factors.push_back(new AirConditioning(this->settings->getFansCount(), this->settings->getFanSpeed()));
     this->factors.push_back(new People(peopleCount));
 }
 
 void Simulation::simulate(std::vector<Conditions> &roomConditions, QVector<double> &roomTimesteps)
 {
     state_type initX(3);
-    initX[0] = settings->initConditions.temperature;     // inity z settingsów
-    initX[1] = settings->initConditions.CO2;
-    initX[2] = settings->initConditions.humidity;
+    initX[0] = settings->getInitConditions().temperature;     // inity z settingsów
+    initX[1] = settings->getInitConditions().CO2;
+    initX[2] = settings->getInitConditions().humidity;
     std::vector<state_type>    states;
     std::vector<double>         times;
     Conditions momentCondition;
-    Model model(this->factors, this->settings->roomVolume);
+    Model model(this->factors, this->settings->getRoomVolume());
 
     size_t steps = odeint::integrate(model,
-            initX , 0.0 ,  this->settings->simulationTime,
-            this->settings->simulationStep, observer(states, times));     // czas, kroki z settingsów
+            initX , 0.0 ,  this->settings->getSimulationTime(),
+            this->settings->getSimulationStep(), observer(states, times));     // czas, kroki z settingsów
 
     for( size_t i=0; i<=steps; i++ )
     {

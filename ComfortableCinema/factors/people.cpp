@@ -22,7 +22,7 @@ double People::changeTemperature(double roomTemperature, double roomVolume)
     double peopleHeat = 0;
 
     for (unsigned int i=0; i<this->people.size(); ++i)
-        peopleHeat += (this->people[i].temperature - roomTemperature) / this->thermalResist;
+        peopleHeat += (this->people[i].getTemperature() - roomTemperature) / this->thermalResist;
 
     return  peopleHeat/roomVolume;
 }
@@ -33,7 +33,7 @@ double People::changeHumidity(double roomHumidity, double roomVolume)
     double wetAirMass = 0;
 
     for (unsigned int i=0; i<this->people.size(); ++i)
-        wetAirMass += this->people[i].humidity;
+        wetAirMass += this->people[i].getHumidity();
 
     return wetAirMass/dryAirMass;
 }
@@ -43,7 +43,17 @@ double People::changeCO2()
     double CO2Mass = 0;
 
     for (unsigned int i=0; i<this->people.size(); ++i)
-        CO2Mass += this->people[i].CO2;
+        CO2Mass += this->people[i].getCO2();
 
     return CO2Mass;
+}
+
+std::vector<Person> People::getPeople() const
+{
+    return people;
+}
+
+void People::setPeople(const std::vector<Person> &value)
+{
+    people = value;
 }

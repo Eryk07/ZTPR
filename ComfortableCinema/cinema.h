@@ -11,7 +11,6 @@ class Cinema
 public:
     Cinema(Settings* settings);
     ~Cinema();
-
     void updateRooms();
     std::vector<Conditions> getRoomConditions(int roomId);
     QVector<double> getRoomSimTime(int roomId);

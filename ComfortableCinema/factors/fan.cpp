@@ -5,7 +5,12 @@ Fan::Fan(double speed)
     this->speed = speed;
 }
 
-void Fan::changeSpeed(double newSpeed)
+double Fan::getSpeed() const
 {
-    this->speed = newSpeed;
+    return speed;
+}
+
+void Fan::setSpeed(double value)
+{
+    speed = value;
 }

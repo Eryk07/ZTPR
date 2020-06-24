@@ -7,9 +7,11 @@ class Fan
 public:
     Fan(double speed);
 
-    double speed;
+    double getSpeed() const;
+    void setSpeed(double value);
 
-    void changeSpeed(double newSpeed);
+private:
+    double speed;
 };
 
 #endif // FAN_H

@@ -16,16 +16,31 @@ public:
     explicit Settings(QWidget *parent = nullptr);
     ~Settings();
 
-    int roomsCount;
-    double roomVolume;
-    Conditions weather;
-    int peopleCount;
-    int fansCount;
-    double fanSpeed;
-    Conditions initConditions;
-    double simulationTime;
-    double simulationStep;
+    int getRoomsCount() const;
+    void setRoomsCount(int value);
 
+    double getRoomVolume() const;
+    void setRoomVolume(double value);
+
+    Conditions getWeather() const;
+    void setWeather(const Conditions &value);
+
+    int getPeopleCount() const;
+    void setPeopleCount(int value);
+
+    int getFansCount() const;
+
+    double getFanSpeed() const;
+    void setFanSpeed(double value);
+
+    Conditions getInitConditions() const;
+    void setInitConditions(const Conditions &value);
+
+    double getSimulationTime() const;
+    void setSimulationTime(double value);
+
+    double getSimulationStep() const;
+    void setSimulationStep(double value);
 
 private slots:
 
@@ -58,6 +73,15 @@ private slots:
 private:
     Ui::Settings *ui;
     void initSpinBoxes();
+    int roomsCount;
+    double roomVolume;
+    Conditions weather;
+    int peopleCount;
+    int fansCount;
+    double fanSpeed;
+    Conditions initConditions;
+    double simulationTime;
+    double simulationStep;
 };
 
 #endif // SETTINGS_H

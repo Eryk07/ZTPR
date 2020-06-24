@@ -69,7 +69,7 @@ void MainWindow::makePlot(QCustomPlot* plot, QVector<double> x, QVector<double> 
     double* max = std::max_element(y.begin(), y.end());
     int max_index = std::distance(y.begin(), max);
 
-    plot->xAxis->setRange(0, this->settings->simulationTime);//x[x.size()-1]); //docelowo simtime!!
+    plot->xAxis->setRange(0, this->settings->getSimulationTime());
     plot->yAxis->setRange(0, 1.1*y[max_index]);
     plot->replot();
 }

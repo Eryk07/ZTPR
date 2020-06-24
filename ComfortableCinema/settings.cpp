@@ -92,6 +92,92 @@ void Settings::initSpinBoxes()
     ui->initHumiditydoubleSpinBox->setValue(initConditions.humidity);
 }
 
+double Settings::getSimulationStep() const
+{
+    return simulationStep;
+}
+
+void Settings::setSimulationStep(double value)
+{
+    simulationStep = value;
+}
+
+double Settings::getSimulationTime() const
+{
+    return simulationTime;
+}
+
+void Settings::setSimulationTime(double value)
+{
+    simulationTime = value;
+}
+
+Conditions Settings::getInitConditions() const
+{
+    return initConditions;
+}
+
+void Settings::setInitConditions(const Conditions &value)
+{
+    initConditions = value;
+}
+
+double Settings::getFanSpeed() const
+{
+    return fanSpeed;
+}
+
+void Settings::setFanSpeed(double value)
+{
+    fanSpeed = value;
+}
+
+int Settings::getFansCount() const
+{
+    return fansCount;
+}
+
+int Settings::getPeopleCount() const
+{
+    return peopleCount;
+}
+
+void Settings::setPeopleCount(int value)
+{
+    peopleCount = value;
+}
+
+Conditions Settings::getWeather() const
+{
+    return weather;
+}
+
+void Settings::setWeather(const Conditions &value)
+{
+    weather = value;
+}
+
+double Settings::getRoomVolume() const
+{
+    return roomVolume;
+}
+
+void Settings::setRoomVolume(double value)
+{
+    roomVolume = value;
+}
+
+int Settings::getRoomsCount() const
+{
+    return roomsCount;
+}
+
+void Settings::setRoomsCount(int value)
+{
+    if (value > 0)
+        roomsCount = value;
+}
+
 void Settings::on_fansCountSpinBox_valueChanged(int _fansCount)
 {
     fansCount = _fansCount;

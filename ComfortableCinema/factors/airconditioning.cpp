@@ -11,7 +11,7 @@ double AirConditioning::changeTemperature(double roomTemperature, double roomVol
     double fanHeat = 0;
 
     for (unsigned int i=0; i<this->fans.size(); ++i)
-        fanHeat += (this->fans[i].speed*roomTemperature);
+        fanHeat += (this->fans[i].getSpeed()*roomTemperature);
 
     return  fanHeat/roomVolume;
 }
@@ -21,7 +21,7 @@ double AirConditioning::changeHumidity(double roomHumidity, double roomVolume)
     double flow = 0;
 
     for (unsigned int i=0; i<this->fans.size(); ++i)
-        flow += (this->fans[i].speed);
+        flow += (this->fans[i].getSpeed());
 
     return (flow/roomVolume)*roomHumidity;
 }
@@ -29,4 +29,14 @@ double AirConditioning::changeHumidity(double roomHumidity, double roomVolume)
 double AirConditioning::changeCO2()
 {
     return 0;
+}
+
+std::vector<Fan> AirConditioning::getFans() const
+{
+    return fans;
+}
+
+void AirConditioning::setFans(const std::vector<Fan> &value)
+{
+    fans = value;
 }

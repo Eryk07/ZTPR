@@ -19,13 +19,11 @@ class Simulation
 {
 public:
     Simulation(Settings* settings);
-
-    std::vector<Factor*> factors;
-
     void simulate(std::vector<Conditions> &roomConditions, QVector<double> &roomTimesteps);
 
 private:
     Settings *settings;
+    std::vector<Factor*> factors;
     void setFactors();
 
 };

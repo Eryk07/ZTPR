@@ -22,15 +22,14 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    Settings* settings;
-
 private slots:
     void on_settingsButton_clicked();
     void makePlot(QCustomPlot* plot, QVector<double> x, QVector<double> y, int plotType);
     void on_simulationButton_clicked();
 
 private:
-    Cinema* cinema;
+    Cinema* cinema;    
+    Settings* settings;
     std::vector<Conditions> currentRoomConditions;
     Ui::MainWindow *ui;
 };
