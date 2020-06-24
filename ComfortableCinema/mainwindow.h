@@ -26,12 +26,16 @@ public:
 
 private slots:
     void on_settingsButton_clicked();
-    void makePlot(QCustomPlot* plot, QVector<double> x, QVector<double> y, int plotType);
+    void update();
     void on_simulationButton_clicked();
 
 private:
     Cinema* cinema;
     std::vector<Conditions> currentRoomConditions;
     Ui::MainWindow *ui;
+    QTimer* timer;
+    double counter;
+    void drawSimulation();
+    void makePlot(QCustomPlot* plot, QVector<double> x, QVector<double> y, int plotType);
 };
 #endif // MAINWINDOW_H

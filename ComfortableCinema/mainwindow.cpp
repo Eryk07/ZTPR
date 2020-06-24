@@ -24,9 +24,32 @@ void MainWindow::on_simulationButton_clicked()
 {
     this->cinema->updateRooms();
     this->currentRoomConditions = cinema ->getRoomConditions(0);
-    QVector<double> times = cinema -> getRoomSimTime(0);
+
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(update()));
+    counter=0;
+    timer->start(settings->simulationStep * 1000);
+}
+
+void MainWindow::update()
+{
+    this->counter += settings->simulationStep;
+    if(this->counter >= settings->simulationTime)
+        timer->stop();
+    else
+        drawSimulation();
+}
+
+void MainWindow::drawSimulation()
+{
+    QVector<double> times;
+
+    for(auto it=cinema->getRoomSimTime(0).begin(); it!=cinema -> getRoomSimTime(0).end(); it++)
+        if ((*it) < this->counter)//(this->settings->simulationTime - (this->timer->remainingTime())/1000.0))
+            times.push_back((*it));
+
     QVector<double> temperature, humidity, co2;
-    for (unsigned int i=0; i<this->currentRoomConditions.size(); ++i)
+    for (unsigned int i=0; i<times.size(); ++i)
     {
         temperature.push_back(this->currentRoomConditions[i].temperature);
         humidity.push_back(this->currentRoomConditions[i].humidity);
