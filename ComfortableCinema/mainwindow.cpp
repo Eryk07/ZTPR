@@ -29,7 +29,7 @@ void MainWindow::on_simulationButton_clicked()
     for (unsigned int i=0; i<this->currentRoomConditions.size(); ++i)
     {
         temperature.push_back(this->currentRoomConditions[i].temperature);
-        humidity.push_back(this->currentRoomConditions[i].humidity);
+        humidity.push_back(100*this->currentRoomConditions[i].humidity);
         co2.push_back(this->currentRoomConditions[i].CO2);
     }
 
@@ -66,10 +66,10 @@ void MainWindow::makePlot(QCustomPlot* plot, QVector<double> x, QVector<double> 
             break;
     }
 
-    double* max = std::max_element(y.begin(), y.end());
-    int max_index = std::distance(y.begin(), max);
+    double* yMax = std::max_element(y.begin(), y.end());
+    double* yMin = std::min_element(y.begin(), y.end());
 
     plot->xAxis->setRange(0, this->settings->getSimulationTime());
-    plot->yAxis->setRange(0, 1.1*y[max_index]);
+    plot->yAxis->setRange(0.9*(*yMin), 1.1*(*yMax));
     plot->replot();
 }
