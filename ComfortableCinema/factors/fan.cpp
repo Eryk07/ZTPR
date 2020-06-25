@@ -12,5 +12,6 @@ double Fan::getSpeed() const
 
 void Fan::setSpeed(double value)
 {
-    speed = value;
+    if (value > 0)
+        speed = value;
 }

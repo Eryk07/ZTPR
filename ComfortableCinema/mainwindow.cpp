@@ -36,7 +36,6 @@ void MainWindow::on_simulationButton_clicked()
     makePlot(ui->tempPlot, times, temperature, 1);
     makePlot(ui->humidityPlot, times, humidity, 2);
     makePlot(ui->co2Plot, times, co2, 3);
-
 }
 
 void MainWindow::makePlot(QCustomPlot* plot, QVector<double> x, QVector<double> y, int plotType)

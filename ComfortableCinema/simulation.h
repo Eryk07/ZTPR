@@ -12,8 +12,9 @@
 
 using namespace boost::numeric;
 
-/* The type of container used to hold the state vector */
+/** The type of container used to hold the state vector */
 typedef std::vector< double > state_type;
+
 
 class Simulation
 {

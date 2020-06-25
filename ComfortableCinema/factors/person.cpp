@@ -24,7 +24,8 @@ double Person::getHumidity() const
 
 void Person::setHumidity(double value)
 {
-    humidity = value;
+    if (value > 0)
+        humidity = value;
 }
 
 double Person::getCO2() const
@@ -34,5 +35,6 @@ double Person::getCO2() const
 
 void Person::setCO2(double value)
 {
-    CO2 = value;
+    if (value > 0)
+        CO2 = value;
 }

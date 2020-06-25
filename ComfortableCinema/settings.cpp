@@ -99,7 +99,8 @@ double Settings::getSimulationStep() const
 
 void Settings::setSimulationStep(double value)
 {
-    simulationStep = value;
+    if (value > 0)
+        simulationStep = value;
 }
 
 double Settings::getSimulationTime() const
@@ -109,7 +110,8 @@ double Settings::getSimulationTime() const
 
 void Settings::setSimulationTime(double value)
 {
-    simulationTime = value;
+    if (value > 0)
+        simulationTime = value;
 }
 
 Conditions Settings::getInitConditions() const
@@ -119,7 +121,8 @@ Conditions Settings::getInitConditions() const
 
 void Settings::setInitConditions(const Conditions &value)
 {
-    initConditions = value;
+    if (value.CO2 > 0 && value.humidity > 0)
+        initConditions = value;
 }
 
 double Settings::getFanSpeed() const
@@ -129,7 +132,8 @@ double Settings::getFanSpeed() const
 
 void Settings::setFanSpeed(double value)
 {
-    fanSpeed = value;
+    if (value >= 0)
+        fanSpeed = value;
 }
 
 int Settings::getFansCount() const
@@ -144,7 +148,8 @@ int Settings::getPeopleCount() const
 
 void Settings::setPeopleCount(int value)
 {
-    peopleCount = value;
+    if (value >= 0)
+        peopleCount = value;
 }
 
 Conditions Settings::getWeather() const
@@ -154,7 +159,8 @@ Conditions Settings::getWeather() const
 
 void Settings::setWeather(const Conditions &value)
 {
-    weather = value;
+    if (value.CO2 > 0 && value.humidity > 0)
+        weather = value;
 }
 
 double Settings::getRoomVolume() const
@@ -164,7 +170,8 @@ double Settings::getRoomVolume() const
 
 void Settings::setRoomVolume(double value)
 {
-    roomVolume = value;
+    if (value > 0)
+        roomVolume = value;
 }
 
 int Settings::getRoomsCount() const

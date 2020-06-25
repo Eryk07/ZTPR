@@ -5,7 +5,7 @@
 #include <iostream>
 #include <vector>
 
-
+/** */
 class AirConditioning : public Factor
 {
 public:
