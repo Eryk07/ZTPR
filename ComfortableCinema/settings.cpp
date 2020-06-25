@@ -77,7 +77,6 @@ void Settings::initSpinBoxes()
     ui->weatherHumiditydoubleSpinBox->setValue(weather.humidity);
 
     //init inside conditions
-
     ui->initCO2doubleSpinBox->setRange(350.0, 500.0);
     ui->initCO2doubleSpinBox->setSingleStep(0.1);
     ui->initCO2doubleSpinBox->setDecimals(1);

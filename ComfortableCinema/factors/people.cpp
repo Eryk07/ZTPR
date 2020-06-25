@@ -3,7 +3,7 @@
 People::People(int peopleCount)
 {
     std::default_random_engine generator;
-    std::normal_distribution<double> temperatureDistribution(36.8, 0.3);    //  wikipedia
+    std::normal_distribution<double> temperatureDistribution(36.8, 0.3);    //  stats from wikipedia
     std::normal_distribution<double> CO2Distribution(0.138, 0.01);    //  person by average generate 0,138 kg of CO2 per 2h (average movie)
     std::normal_distribution<double> humidityDistribution(0.027, 0.007); //     person by average loose 0,027 kg of water with breath per 2h
     double generatedTemperature, generatedCO2, generatedHumidity;
