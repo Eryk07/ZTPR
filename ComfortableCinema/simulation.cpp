@@ -28,7 +28,7 @@ void Simulation::simulate(std::vector<Conditions> &roomConditions, QVector<doubl
 
     size_t steps = odeint::integrate(model,
             initX , 0.0 ,  this->settings->getSimulationTime(),
-            this->settings->getSimulationStep(), observer(states, times));     // czas, kroki z settingsów
+            this->settings->getSimulationStep(), Observer(states, times));     // czas, kroki z settingsów
 
     for( size_t i=0; i<=steps; i++ )
     {
